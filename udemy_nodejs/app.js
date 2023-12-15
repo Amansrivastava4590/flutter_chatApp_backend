@@ -34,15 +34,15 @@ app.use('/ping',(req,res,next)=> {
 //     res.status(404).send("<p> <h1> Page not found </h1></p>")
 // });
 
-app.use('/whatsapp',adminRoutes);
+app.use('/whatsapp-users',adminRoutes);
 
-app.use('/whatsapp',chatRoutes);
+app.use('/whatsapp-chats',chatRoutes);
 
-app.use('/whatsapp',callRoutes);
+app.use('/whatsapp-calls',callRoutes);
 
-app.use('/whatsapp',peopleRoutes);
+app.use('/whatsapp-people',peopleRoutes);
 
-app.use('/whatsapp',messageRoutes);
+app.use('/whatsapp-messages',messageRoutes);
 
 
 const PORT = process.env.PORT || 5000;

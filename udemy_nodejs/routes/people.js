@@ -2,6 +2,18 @@ const PeopleModel =require('../model/peopleModel.js');
 const express = require('express');
 const router = express.Router();
 
+
+router.get('/people', async (req, res) => {
+  try {
+    const peopleData = await PeopleModel.find();
+    console.log(peopleData);
+
+    res.json([peopleData][0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 // Create a new chat
 router.post('/people', async (req, res) => {
     try {
@@ -36,19 +48,7 @@ router.post('/people', async (req, res) => {
     }
   });
 
-  router.get('/people', async (req, res) => {
-    try {
-      const peopleData = await PeopleModel.find();
   
-      res.json({
-        message: 'People data retrieved successfully',
-        data: peopleData,
-      });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  });
 
 
 // Get a specific chat by ID

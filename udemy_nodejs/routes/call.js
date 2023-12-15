@@ -37,10 +37,7 @@ router.post('/calls', async (req, res) => {
     try {
       const callsData = await CallModel.find();
   
-      res.json({
-        message: 'Calls data retrieved successfully',
-        data: callsData,
-      });
+      res.json([callsData][0]);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Internal Server Error' });

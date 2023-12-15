@@ -7,7 +7,7 @@ router.get('/chats', async (req, res) => {
   try {
     const chatsData = await ChatModel.find();
 
-    console.log([chatsData][0][0]);
+    console.log([chatsData][0]);
 
     res.json(chatsData);
   } catch (error) {

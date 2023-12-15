@@ -11,7 +11,7 @@ router.get('/me', async (req, res) => {
     const meData = await MeModel.find();
 
     res.json(
-       [meData][0][0]
+       [meData][0]
     );
   } catch (error) {
     console.error(error);
